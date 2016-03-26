@@ -29,7 +29,7 @@ class Destinations extends Component {
 
   renderDestination(rowData) {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, styles.rowItem]}>
         <Text style={styles.text}>
           {rowData}
         </Text>
@@ -48,12 +48,18 @@ const styles = StyleSheet.create({
 
   text: {
     color: 'white',
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 
   listView: {
-    paddingTop: 20,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#0f0f0f',
   },
+
+  rowItem: {
+    borderBottomColor: 'white',
+    borderBottomWidth: 0.5,
+  }
 });
 
 module.exports = Destinations
