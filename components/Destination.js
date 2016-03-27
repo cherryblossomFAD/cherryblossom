@@ -6,6 +6,8 @@ import React, {
   View,
 } from 'react-native';
 
+const styles = require('../styles.js')
+
 class Destination extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class Destination extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.listItem}>
         <View style={styles.leftContainer}>
           <Text style={styles.text}>
             {this.state.title}
@@ -36,31 +38,5 @@ class Destination extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#0f0f0f',
-    borderBottomColor: 'white',
-    borderBottomWidth: 0.5,
-  },
-
-  leftContainer: {
-    flex: 1,
-  },
-
-  rightContainer: {
-    paddingRight: 10,
-  },
-
-  text: {
-    color: 'white',
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
-});
 
 module.exports = Destination

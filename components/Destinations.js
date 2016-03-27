@@ -8,6 +8,7 @@ import React, {
 } from 'react-native';
 
 const Destination = require('./Destination')
+const styles = require('../styles.js')
 
 const MOCKED_DESTINATIONS_DATA = [
   {title: 'Destination 1', address: 'Address 1', geographicCoordinates: {latitude: 1.0, longitude: 1.0}},
@@ -44,24 +45,5 @@ class Destinations extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#0f0f0f',
-  },
-
-  text: {
-    color: 'white',
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
-
-  listView: {
-    backgroundColor: '#0f0f0f',
-  },
-});
 
 module.exports = Destinations
