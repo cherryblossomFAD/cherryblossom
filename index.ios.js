@@ -13,7 +13,6 @@ import React, {
   NavigatorIOS
 } from 'react-native';
 
-const Firebase = require('firebase');
 const Destinations = require('./components/Destinations')
 const styles = require('./styles.js')
 

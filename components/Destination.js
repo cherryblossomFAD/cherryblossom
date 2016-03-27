@@ -1,3 +1,4 @@
+'use strict';
 import React, {
   AppRegistry,
   Component,
@@ -13,8 +14,7 @@ class Destination extends Component {
     super(props);
     this.state = {
       title: this.props.title,
-      address: this.props.address,
-      geographicCoordinates: this.props.geographicCoordinates,
+      address: this.props.address
     };
   }
 
@@ -31,7 +31,7 @@ class Destination extends Component {
         </View>
         <View style={styles.rightContainer}>
           <Text style={styles.text}>
-            ({this.state.geographicCoordinates.latitude},{this.state.geographicCoordinates.longitude})
+
           </Text>
         </View>
       </View>

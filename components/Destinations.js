@@ -1,3 +1,4 @@
+'use strict';
 import React, {
   AppRegistry,
   Component,
@@ -9,11 +10,8 @@ import React, {
 
 const Destination = require('./Destination')
 const styles = require('../styles.js')
-
-const MOCKED_DESTINATIONS_DATA = [
-  {title: 'Destination 1', address: 'Address 1', geographicCoordinates: {latitude: 1.0, longitude: 1.0}},
-  {title: 'Destination 2', address: 'Address 2', geographicCoordinates: {latitude: 2.0, longitude: 2.0}},
-];
+const Firebase = require('firebase');
+const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
 
 class Destinations extends Component {
   constructor(props) {
@@ -23,12 +21,32 @@ class Destinations extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
     };
+    this.itemsRef = new Firebase(FirebaseUrl);
+  }
+
+  listenForItems(itemsRef) {
+    itemsRef.on('value', (snap) => {
+      // get children as an array
+      var items = [];
+      snap.forEach((child) => {
+        items = child.val()
+      });
+
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(items)
+      });
+
+    });
+  }
+
+  componentDidMount() {
+    this.listenForItems(this.itemsRef);
   }
 
   render() {
     return (
       <ListView
-          dataSource={this.state.dataSource.cloneWithRows(MOCKED_DESTINATIONS_DATA)}
+          dataSource={this.state.dataSource}
           renderRow={this.renderDestination}
           style={styles.listView}
       />
@@ -40,8 +58,7 @@ class Destinations extends Component {
       <Destination
           title={rowData.title}
           address={rowData.address}
-          geographicCoordinates={rowData.geographicCoordinates}
-          />
+      />
     );
   }
 }
