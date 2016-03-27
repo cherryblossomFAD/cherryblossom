@@ -7,6 +7,13 @@ import React, {
   View,
 } from 'react-native';
 
+const Destination = require('./Destination')
+
+const MOCKED_DESTINATIONS_DATA = [
+  {title: 'Destination 1', address: 'Address 1', geographicCoordinates: {latitude: 1.0, longitude: 1.0}},
+  {title: 'Destination 2', address: 'Address 2', geographicCoordinates: {latitude: 2.0, longitude: 2.0}},
+];
+
 class Destinations extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +27,7 @@ class Destinations extends Component {
   render() {
     return (
       <ListView
-          dataSource={this.state.dataSource.cloneWithRows(['destination1', 'destination2'])}
+          dataSource={this.state.dataSource.cloneWithRows(MOCKED_DESTINATIONS_DATA)}
           renderRow={this.renderDestination}
           style={styles.listView}
       />
@@ -29,11 +36,11 @@ class Destinations extends Component {
 
   renderDestination(rowData) {
     return (
-      <View style={[styles.container, styles.rowItem]}>
-        <Text style={styles.text}>
-          {rowData}
-        </Text>
-      </View>
+      <Destination
+          title={rowData.title}
+          address={rowData.address}
+          geographicCoordinates={rowData.geographicCoordinates}
+          />
     );
   }
 }
@@ -55,11 +62,6 @@ const styles = StyleSheet.create({
   listView: {
     backgroundColor: '#0f0f0f',
   },
-
-  rowItem: {
-    borderBottomColor: 'white',
-    borderBottomWidth: 0.5,
-  }
 });
 
 module.exports = Destinations
