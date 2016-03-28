@@ -1,13 +1,8 @@
-const { createStore, applyMiddleware } = require('redux')
-const thunk = require('redux-thunk')
+const { createStore } = require('redux')
 const reducer = require('../reducers')
 
-const createStoreWithMiddleware = applyMiddleware(
-  thunk
-)(createStore)
-
 module.exports = function configureStore(initialState) {
-  const store = createStoreWithMiddleware(reducer, initialState)
+  const store = (createStore)(reducer, initialState)
 
   return store
 }
