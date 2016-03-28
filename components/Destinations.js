@@ -6,7 +6,9 @@ import React, {
   StyleSheet,
   Text,
   View,
+  TouchableHighlight,
 } from 'react-native';
+import Swipeout from 'react-native-swipeout';
 
 const Destination = require('./Destination')
 const styles = require('../styles.js')
@@ -54,11 +56,25 @@ class Destinations extends Component {
   }
 
   renderDestination(rowData) {
+    let swipeBtns = [{
+      text: 'Delete',
+      backgroundColor: 'red'
+    }];
+
     return (
-      <Destination
-          title={rowData.title}
-          address={rowData.address}
-      />
+
+      <Swipeout right={swipeBtns}
+        autoClose='true'
+        backgroundColor= 'transparent'>
+        <TouchableHighlight>
+          <View>
+          <Destination
+              title={rowData.title}
+              address={rowData.address}
+          />
+          </View>
+        </TouchableHighlight>
+      </Swipeout>
     );
   }
 }
