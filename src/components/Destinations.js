@@ -6,7 +6,6 @@ import React, {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
@@ -73,14 +72,10 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
       <Swipeout right={swipeBtns}
         autoClose='true'
         backgroundColor= 'transparent'>
-        <TouchableHighlight>
-          <View>
           <Destination
               title={rowData.title}
               address={rowData.address}
           />
-          </View>
-        </TouchableHighlight>
       </Swipeout>
     );
   }
