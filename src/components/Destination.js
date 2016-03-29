@@ -30,11 +30,6 @@ class Destination extends Component {
             {this.state.address}
           </Text>
         </View>
-        <View style={styles.rightContainer}>
-          <Text style={styles.text}>
-
-          </Text>
-        </View>
       </View>
     );
   }
