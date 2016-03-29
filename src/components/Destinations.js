@@ -46,13 +46,6 @@ class Destinations extends Component {
 
   componentDidMount() {
     this.listenForItems(this.itemsRef);
-// When a todo is removed
-this.itemsRef.on('child_removed', (dataSnapshot) => {
-    this.items = this.items.filter((x) => x.id !== dataSnapshot.key());
-    this.setState({
-      todoSource: this.state.todoSource.cloneWithRows(this.items)
-    });
-});
   }
 
   render() {
@@ -84,6 +77,7 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
           <Destination
               title={rowData.title}
               address={rowData.address}
+              id={rowData.id}
           />
       </Swipeout>
     );
