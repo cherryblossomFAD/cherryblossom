@@ -34,7 +34,11 @@ class Destinations extends Component {
       // get children as an array
       var items = [];
       snap.forEach((child) => {
-        items = child.val()
+        items.push({
+         title: child.val().title,
+         address: child.val().address,
+         _key: child.key()
+       });
       });
 
       this.setState({
@@ -59,7 +63,7 @@ class Destinations extends Component {
   }
 
   deleteDestination(rowData) {
-    this.itemsRef.child(rowData.id).remove()
+    this.itemsRef.child(rowData._key).remove()
   }
 
   renderDestination(rowData) {
