@@ -27,7 +27,6 @@ class Destinations extends Component {
       }),
     };
     this.itemsRef = new Firebase(FirebaseUrl);
-    this.renderDestination = this.renderDestination.bind(this);
   }
 
   listenForItems(itemsRef) {
@@ -60,7 +59,7 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
     return (
       <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderDestination}
+          renderRow={this.renderDestination.bind(this)}
           style={styles.listView}
       />
     );
