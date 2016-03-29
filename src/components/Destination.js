@@ -7,7 +7,7 @@ import React, {
   View,
 } from 'react-native';
 
-const styles = require('../styles.js')
+const styles = require('../../styles.js')
 
 class Destination extends Component {
   constructor(props) {

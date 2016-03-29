@@ -10,7 +10,7 @@ import React, {
 import Swipeout from 'react-native-swipeout';
 
 const Destination = require('./Destination')
-const styles = require('../styles.js')
+const styles = require('../../styles.js')
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
 
