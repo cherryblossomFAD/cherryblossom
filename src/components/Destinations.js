@@ -9,6 +9,10 @@ import React, {
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
+const { bindActionCreators } = require('redux')
+const { connect } = require('react-redux')
+const ItemsActions = require('../actions/destinationActions')
+
 const Destination = require('./Destination')
 const styles = require('../../styles.js')
 const Firebase = require('firebase');
@@ -51,6 +55,11 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
 });
   }
 
+  _remove(id) {
+    console.log(id)
+    this.itemsRef.child(id).remove()
+  }
+
   render() {
     return (
       <ListView
@@ -71,7 +80,8 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
 
       <Swipeout right={swipeBtns}
         autoClose='true'
-        backgroundColor= 'transparent'>
+        backgroundColor= 'transparent'
+        onPress={() => this._remove(rowData.id)}>
           <Destination
               title={rowData.title}
               address={rowData.address}
@@ -81,4 +91,15 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
   }
 }
 
-module.exports = Destinations
+function mapReduxStoreToProps(reduxStore) {
+  return {
+    destinationItems: reduxStore.items.destinationItems,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ItemsActions, dispatch)
+}
+
+module.exports = connect(mapReduxStoreToProps, mapDispatchToProps)(Destinations)
+

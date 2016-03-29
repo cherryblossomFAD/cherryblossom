@@ -14,7 +14,8 @@ class Destination extends Component {
     super(props);
     this.state = {
       title: this.props.title,
-      address: this.props.address
+      address: this.props.address,
+      id: this.props.id
     };
   }
 
