@@ -27,6 +27,7 @@ class Destinations extends Component {
       }),
     };
     this.itemsRef = new Firebase(FirebaseUrl);
+    this.renderDestination = this.renderDestination.bind(this);
   }
 
   listenForItems(itemsRef) {
@@ -55,11 +56,6 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
 });
   }
 
-  _remove(id) {
-    console.log(id)
-    this.itemsRef.child(id).remove()
-  }
-
   render() {
     return (
       <ListView
@@ -70,18 +66,22 @@ this.itemsRef.on('child_removed', (dataSnapshot) => {
     );
   }
 
+  deleteDestination(rowData) {
+    this.itemsRef.child(rowData.id).remove()
+  }
+
   renderDestination(rowData) {
     let swipeBtns = [{
       text: 'Delete',
-      backgroundColor: 'red'
+      backgroundColor: 'red',
+      onPress: () => { this.deleteDestination(rowData) }
     }];
 
     return (
 
       <Swipeout right={swipeBtns}
         autoClose='true'
-        backgroundColor= 'transparent'
-        onPress={() => this._remove(rowData.id)}>
+        backgroundColor= 'transparent'>
           <Destination
               title={rowData.title}
               address={rowData.address}
@@ -102,4 +102,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 module.exports = connect(mapReduxStoreToProps, mapDispatchToProps)(Destinations)
-
