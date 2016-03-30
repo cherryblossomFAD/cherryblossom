@@ -26,8 +26,15 @@ class Destinations extends Component {
     this.itemsRef = new Firebase(FirebaseUrl);
   }
 
+  componentDidMount() {
+    this.listenForItems(this.itemsRef);
+  }
+
   listenForItems(itemsRef) {
-    itemsRef.on('value', (snap) => {
+    itemsRef.on('value', this.onValueChange.bind(this));
+  }
+
+  onValueChange(snap) {
       // get children as an array
       var items = [];
       snap.forEach((child) => {
@@ -41,12 +48,6 @@ class Destinations extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items)
       });
-
-    });
-  }
-
-  componentDidMount() {
-    this.listenForItems(this.itemsRef);
   }
 
   render() {
@@ -73,7 +74,6 @@ class Destinations extends Component {
     return (
 
       <Swipeout right={swipeBtns}
-        autoClose='true'
         backgroundColor= 'transparent'>
           <Destination
               title={rowData.title}
