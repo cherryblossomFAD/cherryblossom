@@ -8,6 +8,7 @@
   "dependencies": {
     "firebase": "^2.4.1",
     "react-native": "^0.22",
+    "react-native-google-places-autocomplete": "^1.1.6",
     "react-native-swipeout": "^2.0.12",
     "redux": "^3.3.1"
   }

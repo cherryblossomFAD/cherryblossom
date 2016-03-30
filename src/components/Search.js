@@ -4,35 +4,64 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View,
-  TouchableHighlight,
-  AlertIOS
+  View
 } from 'react-native';
 
-const styles = require('../../styles.js')
+var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
 
-class Search extends Component {
+const styles = require('../../styles.js')
+const homePlace = {description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
+const workPlace = {description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
+
+var Search = React.createClass({
   render() {
     return (
-      <View style={styles.search}>
-        <TouchableHighlight onPress={this.addDestination} underlayColor="transparent">
-          <Text style={styles.button}>Add Destination</Text>
-        </TouchableHighlight>
-      </View>
-    )
-  }
+      <GooglePlacesAutocomplete
+        placeholder='Search'
+        minLength={2} // minimum length of text to search
+        autoFocus={false}
+        fetchDetails={true}
+        onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
+          console.log(data);
+          console.log(details);
+        }}
+        getDefaultValue={() => {
+          return ''; // text input default value
+        }}
+        query={{
+          // available options: https://developers.google.com/places/web-service/autocomplete
+          key: 'AIzaSyCt38aARR3ZX1iedL8fchnkTa2Fa0yjiZk',
+          language: 'en', // language of the results
+          types: '(cities)', // default: 'geocode'
+        }}
+        styles={{
+          description: {
+            fontWeight: 'bold',
+          },
+          predefinedPlacesDescription: {
+            color: '#1faadb',
+          },
+        }}
 
-  addDestination() {
-    AlertIOS.prompt(
-      'Enter password',
-      'Enter your password to claim your $1.5B in lottery winnings',
-      [
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'OK', onPress: password => console.log('OK Pressed, password: ' + password)},
-      ],
-      'plain-text', 'secure-text', 'another one'
+        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+        currentLocationLabel="Current location"
+        currentLocationAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
+        GoogleReverseGeocodingQuery={{
+          // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
+        }}
+        GooglePlacesSearchQuery={{
+          // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
+          rankby: 'distance',
+          types: 'food',
+        }}
+
+
+        filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
+
+        predefinedPlaces={[homePlace, workPlace]}
+      />
     );
   }
-}
+});
 
 module.exports = Search

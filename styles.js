@@ -55,10 +55,6 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingTop: 10,
     paddingBottom: 10,
-  },
-
-  button: {
-    color: 'cyan',
   }
 });
 
