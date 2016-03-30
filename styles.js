@@ -3,6 +3,11 @@ const React = require('react-native')
 const {StyleSheet} = React
 
 const styles = StyleSheet.create({
+  search: {
+    flex: 1,
+    backgroundColor: '#0f0f0f'
+  },
+
   nav: {
       flex: 1
    },
