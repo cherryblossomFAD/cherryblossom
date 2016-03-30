@@ -51,7 +51,12 @@ class CherryBlossom extends Component {
               selectedTab: 'destinationsTab'
             });
           }}>
-          <Destinations />
+          <NavigatorIOS
+            initialRoute={{ title: 'Destinations', component: Destinations }} style={styles.nav}
+            tintColor="white"
+            titleTextColor="white"
+            barTintColor="#101010"
+            />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="bookmarks"

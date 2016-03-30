@@ -3,6 +3,15 @@ const React = require('react-native')
 const {StyleSheet} = React
 
 const styles = StyleSheet.create({
+  nav: {
+      flex: 1
+   },
+
+  destinations: {
+    flex: 1,
+    paddingTop: 64
+  },
+
   tabContent: {
     flex: 1,
     alignItems: 'center',
