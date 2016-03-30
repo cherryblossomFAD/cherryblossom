@@ -9,9 +9,6 @@ import React, {
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
-const { bindActionCreators } = require('redux')
-const { connect } = require('react-redux')
-const ItemsActions = require('../actions/destinationActions')
 
 const Destination = require('./Destination')
 const styles = require('../../styles.js')
@@ -88,14 +85,4 @@ class Destinations extends Component {
   }
 }
 
-function mapReduxStoreToProps(reduxStore) {
-  return {
-    destinationItems: reduxStore.items.destinationItems,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(ItemsActions, dispatch)
-}
-
-module.exports = connect(mapReduxStoreToProps, mapDispatchToProps)(Destinations)
+module.exports = Destinations

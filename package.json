@@ -9,7 +9,6 @@
     "firebase": "^2.4.1",
     "react-native": "^0.22",
     "react-native-swipeout": "^2.0.12",
-    "react-redux": "^4.4.1",
     "redux": "^3.3.1"
   }
 }
