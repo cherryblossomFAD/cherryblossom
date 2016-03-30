@@ -10,6 +10,7 @@ import React, {
   StyleSheet,
   Text,
   View,
+  StatusBar,
   TabBarIOS,
   NavigatorIOS
 } from 'react-native';
@@ -39,6 +40,11 @@ class CherryBlossom extends Component {
 
   render() {
     return (
+      <View style={styles.nav}>
+      <StatusBar
+        backgroundColor="blue"
+        barStyle="light-content"
+        />
     <TabBarIOS
         tintColor="white"
         barTintColor="#101010">
@@ -91,6 +97,7 @@ class CherryBlossom extends Component {
           {this._renderContent('More')}
         </TabBarIOS.Item>
       </TabBarIOS>
+      </View>
     );
   }
 }
