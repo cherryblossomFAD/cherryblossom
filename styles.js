@@ -5,6 +5,8 @@ const {StyleSheet} = React
 const styles = StyleSheet.create({
   search: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#0f0f0f'
   },
 
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
 
+  button: {
+    color: 'cyan',
+  }
 });
 
 module.exports = styles
