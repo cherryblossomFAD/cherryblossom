@@ -12,7 +12,7 @@ import React, {
   View,
   StatusBar,
   TabBarIOS,
-  NavigatorIOS
+  Navigator
 } from 'react-native';
 
 const Destinations = require('./src/components/Destinations')
@@ -38,7 +38,9 @@ class CherryBlossom extends Component {
         </View>
       );
     }
-
+    renderDestinationsScene(route, navigator) {
+      return <route.component navigator={navigator} />
+    }
   render() {
     return (
       <View style={styles.nav}>
@@ -58,11 +60,12 @@ class CherryBlossom extends Component {
               selectedTab: 'destinationsTab'
             });
           }}>
-          <NavigatorIOS
-            initialRoute={{ title: 'Destinations', component: Destinations }} style={styles.nav}
+          <Navigator
+            initialRoute={{ name: 'Destinations', component: Destinations }} style={styles.nav}
             tintColor="white"
             titleTextColor="white"
             barTintColor="#101010"
+            renderScene = { this.renderDestinationsScene }
             />
         </TabBarIOS.Item>
         <TabBarIOS.Item
