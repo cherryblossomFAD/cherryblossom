@@ -17,7 +17,9 @@ var DestinationDetail = React.createClass({
 
   render() {
     return (
-    <Text> {destinationAddress} </Text>
+      <View style={styles.listItem}>
+        <Text style={styles.text}> destinationAddress </Text>
+      </View>
   )
   }
 });
