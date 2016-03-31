@@ -9,11 +9,16 @@ import React, {
 
 var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
 
+const Firebase = require('firebase');
+const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
 const styles = require('../../styles.js')
-const homePlace = {description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
-const workPlace = {description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
 
 var Search = React.createClass({
+  getInitialState() {
+    this.itemsRef = new Firebase(FirebaseUrl)
+    return null
+  },
+
   render() {
     return (
       <GooglePlacesAutocomplete
@@ -24,6 +29,9 @@ var Search = React.createClass({
         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
           console.log(data);
           console.log(details);
+          const destination = { title: details.name, address: details.formatted_address }
+          this.itemsRef.push(destination)
+          alert("\"" + destination.title + "\" was added to your Desinations.")
         }}
         getDefaultValue={() => {
           return ''; // text input default value
@@ -32,7 +40,6 @@ var Search = React.createClass({
           // available options: https://developers.google.com/places/web-service/autocomplete
           key: 'AIzaSyCt38aARR3ZX1iedL8fchnkTa2Fa0yjiZk',
           language: 'en', // language of the results
-          types: '(cities)', // default: 'geocode'
         }}
         styles={{
           description: {
@@ -44,7 +51,7 @@ var Search = React.createClass({
         }}
 
         currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
-        currentLocationLabel="Current location"
+        currentLocationLabel="Current Location"
         currentLocationAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
         GoogleReverseGeocodingQuery={{
           // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
@@ -54,11 +61,6 @@ var Search = React.createClass({
           rankby: 'distance',
           types: 'food',
         }}
-
-
-        filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} // filter the reverse geocoding results by types - ['locality', 'administrative_area_level_3'] if you want to display only cities
-
-        predefinedPlaces={[homePlace, workPlace]}
       />
     );
   }
