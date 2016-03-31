@@ -6,11 +6,13 @@ import React, {
   StyleSheet,
   Text,
   View,
+  TouchableHighlight
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
 
 const Destination = require('./Destination')
+const DestinationDetail = require('./DestinationDetail')
 const styles = require('../../styles.js')
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
@@ -64,6 +66,13 @@ class Destinations extends Component {
     this.itemsRef.child(rowData._key).remove()
   }
 
+  navigate() {
+    this.props.navigator.push({
+      name: 'DestinationDetail',
+      component: DestinationDetail
+    })
+  }
+
   renderDestination(rowData) {
     let swipeBtns = [{
       text: 'Delete',
@@ -75,11 +84,15 @@ class Destinations extends Component {
 
       <Swipeout right={swipeBtns}
         backgroundColor= 'transparent'>
+        <TouchableHighlight onPress={ () => this.navigate() }>
+        <View>
           <Destination
               title={rowData.title}
               address={rowData.address}
               id={rowData.id}
           />
+          </View>
+          </TouchableHighlight>
       </Swipeout>
     );
   }

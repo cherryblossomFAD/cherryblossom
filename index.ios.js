@@ -16,6 +16,8 @@ import React, {
 } from 'react-native';
 
 const Destinations = require('./src/components/Destinations')
+const DestinationDetail = require('./src/components/DestinationDetail')
+
 const Search = require('./src/components/Search')
 const styles = require('./styles.js')
 
@@ -38,9 +40,10 @@ class CherryBlossom extends Component {
         </View>
       );
     }
-    renderDestinationsScene(route, navigator) {
+    renderScene(route, navigator) {
       return <route.component navigator={navigator} />
     }
+
   render() {
     return (
       <View style={styles.nav}>
@@ -65,7 +68,7 @@ class CherryBlossom extends Component {
             tintColor="white"
             titleTextColor="white"
             barTintColor="#101010"
-            renderScene = { this.renderDestinationsScene }
+            renderScene = { this.renderScene }
             />
         </TabBarIOS.Item>
         <TabBarIOS.Item
