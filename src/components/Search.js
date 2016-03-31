@@ -29,7 +29,7 @@ var Search = React.createClass({
         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
           console.log(data);
           console.log(details);
-          const destination = { title: details.name, address: details.formatted_address }
+          const destination = { title: details.name, address: details.formatted_address, location: details.geometry.location }
           this.itemsRef.push(destination)
           alert("\"" + destination.title + "\" was added to your Desinations.")
         }}
