@@ -10,16 +10,16 @@ import React, {
 const styles = require('../../styles.js')
 var destinationAddress = 'The Address'
 var DestinationDetail = React.createClass({
+
   render() {
     destinationAddress = this.props.route.passprops.address
-
-    alert(destinationAddress)
     return (
-      <View>
+      <View style={styles.destinationDetail}>
         <Text style={styles.text}> {destinationAddress} </Text>
       </View>
-  )
+    )
   }
+
 });
 
 module.exports = DestinationDetail

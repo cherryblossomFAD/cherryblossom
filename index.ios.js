@@ -28,7 +28,7 @@ var NavigationBarRouteMapper = {
         navigator.pop();
       }
     }}>
-      <Text>Back</Text>
+      <Text style={styles.text}>Back</Text>
     </TouchableHighlight>
   )
   },
@@ -39,7 +39,7 @@ var NavigationBarRouteMapper = {
 
   Title: function(route, navigator, index, navState) {
     return (
-      <Text>
+      <Text style={styles.text}>
         {route.name}
       </Text>
     );
@@ -88,13 +88,14 @@ class CherryBlossom extends Component {
             });
           }}>
           <Navigator
-            initialRoute={{ name: 'Destinations List', component: Destinations }} style={styles.nav}
+            initialRoute={{ name: 'Destinations List', component: Destinations }}
             tintColor="white"
             titleTextColor="white"
             barTintColor="#101010"
             renderScene = { this.renderScene }
             navigationBar={
             <Navigator.NavigationBar
+              style={styles.nav}
               routeMapper={NavigationBarRouteMapper}
             />}
             />

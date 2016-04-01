@@ -11,12 +11,15 @@ const styles = StyleSheet.create({
   },
 
   nav: {
-      flex: 1
+    flex: 1,
+    backgroundColor: '#0f0f0f',
+    borderBottomColor: 'white',
+    borderBottomWidth: 1
    },
 
   destinations: {
     flex: 1,
-    paddingTop: 64
+    paddingTop: 40
   },
 
   tabContent: {
@@ -36,6 +39,7 @@ const styles = StyleSheet.create({
 
   listView: {
     backgroundColor: '#0f0f0f',
+    paddingTop: 40,
   },
 
   listItem: {
@@ -46,6 +50,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#0f0f0f',
     borderBottomColor: 'white',
     borderBottomWidth: 0.5,
+  },
+
+  destinationDetail: {
+    flex: 1,
+    backgroundColor: '#0f0f0f',
+    paddingTop: 100,
   },
 
   leftContainer: {
