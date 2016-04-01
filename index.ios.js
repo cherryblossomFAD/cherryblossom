@@ -65,7 +65,7 @@ class CherryBlossom extends Component {
       );
     }
   renderScene(route, navigator) {
-    return <route.component navigator={navigator} name={route.name} index={route.index} />
+    return <route.component navigator={navigator} name={route.name} route={route} />
   }
 
   render() {

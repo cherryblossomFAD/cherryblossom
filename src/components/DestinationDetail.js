@@ -8,14 +8,12 @@ import React, {
 } from 'react-native';
 
 const styles = require('../../styles.js')
-const destinationAddress = 'The Address'
+var destinationAddress = 'The Address'
 var DestinationDetail = React.createClass({
-  getInitialState() {
-    return null
-  },
-
   render() {
-  //  alert(destinationAddress)
+    destinationAddress = this.props.route.passprops.address
+
+    alert(destinationAddress)
     return (
       <View>
         <Text style={styles.text}> {destinationAddress} </Text>
