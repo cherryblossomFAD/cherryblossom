@@ -11,14 +11,14 @@ const styles = require('../../styles.js')
 const destinationAddress = 'The Address'
 var DestinationDetail = React.createClass({
   getInitialState() {
-    destinationAddress = "Whatever the address is"
     return null
   },
 
   render() {
+  //  alert(destinationAddress)
     return (
-      <View style={styles.listItem}>
-        <Text style={styles.text}> destinationAddress </Text>
+      <View>
+        <Text style={styles.text}> {destinationAddress} </Text>
       </View>
   )
   }

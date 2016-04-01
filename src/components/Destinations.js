@@ -66,10 +66,13 @@ class Destinations extends Component {
     this.itemsRef.child(rowData._key).remove()
   }
 
-  navigate() {
+  navigate(rowData) {
     this.props.navigator.push({
-      name: 'DestinationDetail',
-      component: DestinationDetail
+      name: 'Destination Details',
+      component: DestinationDetail,
+      passprops: {
+        address: rowData.address
+      }
     })
   }
 
@@ -84,7 +87,7 @@ class Destinations extends Component {
 
       <Swipeout right={swipeBtns}
         backgroundColor= 'transparent'>
-        <TouchableHighlight onPress={ () => this.navigate() }>
+        <TouchableHighlight onPress={ () => this.navigate(rowData) }>
         <View>
           <Destination
               title={rowData.title}
