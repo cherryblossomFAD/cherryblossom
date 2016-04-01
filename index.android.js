@@ -15,7 +15,7 @@ import React, {
 } from 'react-native';
 
 const styles = require('./styles.js')
-const FakeDestinationsList = require('./src/components/FakeDestinationsList')
+const Destinations = require('./src/components/Destinations')
 const DRAWER_REF = 'drawer';
 
 class cherryblossom extends Component {
@@ -39,7 +39,7 @@ class cherryblossom extends Component {
                 title="Destinations"
                 style={styles.toolBar}
                 />
-              <FakeDestinationsList />
+              <Destinations />
             </View>
       </DrawerLayoutAndroid>
     );
