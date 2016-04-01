@@ -29,6 +29,11 @@ const styles = StyleSheet.create({
     margin: 50,
   },
 
+  toolBar: {
+    height: 60,
+    backgroundColor: 'gray',
+  },
+
   listView: {
     backgroundColor: '#0f0f0f',
   },
