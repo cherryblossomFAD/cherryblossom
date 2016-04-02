@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "firebase": "^2.4.1",
-    "react-native": "^0.23.0-rc3",
+    "react": "^0.14.8",
+    "react-native": "^0.23.0-rc4",
     "react-native-google-places-autocomplete": "^1.1.6",
     "react-native-navbar": "^1.4.2",
     "react-native-swipeout": "^2.0.12",
