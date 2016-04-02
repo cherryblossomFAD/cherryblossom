@@ -10,30 +10,31 @@ import React, {
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
+
 const Destination = require('./Destination')
 const DestinationDetail = require('./DestinationDetail')
 const styles = require('../../styles.js')
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
 
-var Destinations = React.createClass({
-  getInitialState() {
-    this.itemsRef = new Firebase(FirebaseUrl);
+class Destinations extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
-      })
-    }
-    return this.state
-  },
+      }),
+    };
+    this.itemsRef = new Firebase(FirebaseUrl);
+  }
 
   componentDidMount() {
     this.listenForItems(this.itemsRef);
-  },
+  }
 
   listenForItems(itemsRef) {
-    itemsRef.on('value', this.onValueChange);
-  },
+    itemsRef.on('value', this.onValueChange.bind(this));
+  }
 
   onValueChange(snap) {
       // get children as an array
@@ -49,21 +50,21 @@ var Destinations = React.createClass({
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items)
       });
-  },
+  }
 
   render() {
     return (
       <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderDestination}
+          renderRow={this.renderDestination.bind(this)}
           style={styles.listView}
       />
     );
-  },
+  }
 
   deleteDestination(rowData) {
     this.itemsRef.child(rowData._key).remove()
-  },
+  }
 
   navigate(rowData) {
     this.props.navigator.push({
@@ -74,7 +75,7 @@ var Destinations = React.createClass({
         address: rowData.address
       }
     })
-  },
+  }
 
   renderDestination(rowData) {
     let swipeBtns = [{
@@ -99,6 +100,6 @@ var Destinations = React.createClass({
       </Swipeout>
     );
   }
-});
+}
 
 module.exports = Destinations
