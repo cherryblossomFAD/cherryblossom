@@ -71,6 +71,7 @@ class Destinations extends Component {
       name: 'Destination Details',
       component: DestinationDetail,
       passprops: {
+        title: rowData.title,
         address: rowData.address
       }
     })

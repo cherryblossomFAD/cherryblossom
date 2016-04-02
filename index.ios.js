@@ -23,14 +23,16 @@ const Search = require('./src/components/Search')
 const styles = require('./styles.js')
 var NavigationBarRouteMapper = {
   LeftButton: function(route, navigator, index, navState) {
-    return (<TouchableHighlight  onPress={() => {
-      if (index > 0) {
-        navigator.pop();
-      }
-    }}>
-      <Text>Back</Text>
-    </TouchableHighlight>
-  )
+    if (index > 0) {
+      return (
+        <TouchableHighlight
+          onPress={() => {
+              navigator.pop();
+          }}>
+          <Text style={styles.text}>Back</Text>
+        </TouchableHighlight>
+      )
+    }
   },
 
   RightButton: function(route, navigator, index, navState) {
@@ -39,7 +41,7 @@ var NavigationBarRouteMapper = {
 
   Title: function(route, navigator, index, navState) {
     return (
-      <Text>
+      <Text style={styles.text}>
         {route.name}
       </Text>
     );
@@ -65,7 +67,7 @@ class CherryBlossom extends Component {
       );
     }
   renderScene(route, navigator) {
-    return <route.component navigator={navigator} name={route.name} index={route.index} />
+    return <route.component navigator={navigator} name={route.name} route={route} />
   }
 
   render() {
@@ -88,13 +90,14 @@ class CherryBlossom extends Component {
             });
           }}>
           <Navigator
-            initialRoute={{ name: 'Destinations List', component: Destinations }} style={styles.nav}
+            initialRoute={{ name: 'Destinations List', component: Destinations }}
             tintColor="white"
             titleTextColor="white"
             barTintColor="#101010"
             renderScene = { this.renderScene }
             navigationBar={
             <Navigator.NavigationBar
+              style={styles.nav}
               routeMapper={NavigationBarRouteMapper}
             />}
             />
