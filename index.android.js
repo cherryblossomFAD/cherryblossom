@@ -15,7 +15,8 @@ import React, {
 } from 'react-native';
 
 const styles = require('./styles.js')
-const DestinationsNavigator = require('./src/components/DestinationsNavigator')
+const Destinations = require('./src/components/Destinations')
+const DestinationDetail = require('./src/components/DestinationDetail')
 const Search = require('./src/components/Search')
 const DrawerMenu = require('./src/components/DrawerMenu')
 const DRAWER_REF = 'drawer'
@@ -78,37 +79,62 @@ class cherryblossom extends Component {
                 this.refs[NAV_REF].replace({id: position, title: MENU_ITEMS[position].title});
                 return;
             default:
-                this.refs[NAV_REF].replace({id: position, title: MENU_ITEMS[position].title});
+                this.refs[NAV_REF].push({id: position, title: MENU_ITEMS[position].title});
                 return;
         }
   }
 
   _renderScene(route, navigator) {
-    const toolBar = <ToolbarAndroid
-      navIcon={ require('./hamburger.png')}
-      onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
-      title={route.title}
-      style={styles.toolBar}
-      />
+    var toolBars = [];
+        toolBars.push(
+            <ToolbarAndroid
+              navIcon={ require('./hamburger.png')}
+              onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
+              title={route.title}
+              style={styles.toolBar}
+            />
+          );
+
+          toolBars.push(
+              <ToolbarAndroid
+                navIcon={ require('./hamburger.png')}
+                onIconClicked={() => {
+                                        if (route.id > 0) {
+                                            navigator.pop();
+                                        }
+                                      }
+                              }
+                title={route.title}
+                style={styles.toolBar}
+              />
+            );
+
     switch (route.id) {
       case 0:
         return (
-            <View style={styles.nav}>
-              {toolBar}
-              <DestinationsNavigator navigator={navigator} />
+            <View>
+              {toolBars[0]}
+              <Destinations navigator={navigator} />
             </View>
           );
       case 1:
         return (
             <View>
-              {toolBar}
+              {toolBars[0]}
               <Search navigator={navigator} />
             </View>
           );
+      case 3:
+        return (
+          <View>
+            {toolBars[1]}
+            <DestinationDetail navigator={navigator} route={route}/>
+          </View>
+        )
       default:
         return (
           <View>
-            {toolBar}
+            {toolBars[0]}
             <Destinations navigator={navigator} />
           </View>
         );
