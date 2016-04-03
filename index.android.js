@@ -15,7 +15,7 @@ import React, {
 } from 'react-native';
 
 const styles = require('./styles.js')
-const Destinations = require('./src/components/Destinations')
+const DestinationsNavigator = require('./src/components/DestinationsNavigator')
 const DRAWER_REF = 'drawer';
 
 class cherryblossom extends Component {
@@ -32,14 +32,14 @@ class cherryblossom extends Component {
             ref={DRAWER_REF}
             drawerPosition={DrawerLayoutAndroid.positions.Left}
             renderNavigationView={() => navigationView}>
-            <View>
+            <View style={styles.nav}>
               <ToolbarAndroid
                 navIcon={ require('./hamburger.png')}
                 onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
                 title="Destinations"
                 style={styles.toolBar}
                 />
-              <Destinations />
+              <DestinationsNavigator />
             </View>
       </DrawerLayoutAndroid>
     );

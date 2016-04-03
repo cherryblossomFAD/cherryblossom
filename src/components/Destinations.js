@@ -10,7 +10,6 @@ import React, {
 } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
-
 const Destination = require('./Destination')
 const DestinationDetail = require('./DestinationDetail')
 const styles = require('../../styles.js')

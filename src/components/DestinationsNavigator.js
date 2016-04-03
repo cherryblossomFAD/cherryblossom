@@ -49,7 +49,7 @@ class DestinationsNavigator extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'Destination', component: Destinations }}
+        initialRoute={{ name: 'Destinations', component: Destinations }}
         tintColor="white"
         titleTextColor="white"
         barTintColor="#101010"
