@@ -73,10 +73,6 @@ class Destinations extends Component {
       component: DestinationDetail,
       passprops: {
         key: rowData._key,
-        title: rowData.title,
-        address: rowData.address,
-        latitude: rowData.latitude,
-        longitude: rowData.longitude
       },
       id: 3,
       title: 'Destination Details',
