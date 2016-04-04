@@ -90,8 +90,8 @@ class cherryblossom extends Component {
   _renderScene(route, navigator) {
     var toolBars = [];
         toolBars.push(
-            <ToolbarAndroid
-              navIcon={ require('./hamburger.png')}
+            <Ionicons.ToolbarAndroid
+              navIconName="navicon-round"
               onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
               title={route.title}
               style={styles.toolBar}
