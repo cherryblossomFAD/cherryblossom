@@ -6,7 +6,9 @@ import React, {
   Text,
   View,
   MapView,
-  TextInput
+  TextInput,
+  DeviceEventEmitter,
+  Dimensions,
 } from 'react-native';
 
 const styles = require('../../styles.js')
@@ -24,12 +26,27 @@ var DestinationDetail = React.createClass({
         latitude: this.props.route.passprops.latitude,
         title: this.props.route.passprops.title,
       }],
+      visibleHeight: Dimensions.get('window').height,
     };
+  },
+
+  componentWillMount () {
+    DeviceEventEmitter.addListener('keyboardWillShow', this.keyboardWillShow)
+    DeviceEventEmitter.addListener('keyboardWillHide', this.keyboardWillHide)
+  },
+
+  keyboardWillShow (e) {
+    let newSize = Dimensions.get('window').height - e.endCoordinates.height
+    this.setState({visibleHeight: newSize})
+  },
+
+  keyboardWillHide (e) {
+    this.setState({visibleHeight: Dimensions.get('window').height})
   },
 
   render() {
     return (
-      <View>
+      <View style={{height: this.state.visibleHeight}}>
         <MapView
           style={styles.map}
           region = {{
@@ -40,16 +57,18 @@ var DestinationDetail = React.createClass({
           }}
           annotations={this.state.annotations}
         />
+        <View style={styles.leftContainer}>
         <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor: 'white'}}
             onChangeText={(text) => this.setState({title: text})}
             value={this.state.title}
           />
         <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor: 'white'}}
             onChangeText={(text) => this.setState({address: text})}
             value={this.state.address}
           />
+          </View>
       </View>
     );
   }
