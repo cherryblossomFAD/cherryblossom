@@ -42,6 +42,8 @@ class Destinations extends Component {
         items.push({
          title: child.val().title,
          address: child.val().address,
+         latitude: child.val().location.lat,
+         longitude: child.val().location.lng,
          _key: child.key()
        });
       });
@@ -71,7 +73,9 @@ class Destinations extends Component {
       component: DestinationDetail,
       passprops: {
         title: rowData.title,
-        address: rowData.address
+        address: rowData.address,
+        latitude: rowData.latitude,
+        longitude: rowData.longitude
       },
       id: 3,
       title: 'Destination Details',

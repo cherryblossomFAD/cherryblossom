@@ -11,7 +11,6 @@ import React, {
 } from 'react-native';
 
 const DestinationsNavigator = require('./src/components/DestinationsNavigator')
-const DestinationDetail = require('./src/components/DestinationDetail')
 const Search = require('./src/components/Search')
 const styles = require('./styles.js')
 
