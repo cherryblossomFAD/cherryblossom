@@ -19,15 +19,18 @@ const Destinations = require('./src/components/Destinations')
 const DestinationDetail = require('./src/components/DestinationDetail')
 const Search = require('./src/components/Search')
 const DrawerMenu = require('./src/components/DrawerMenu')
+const Icon	= require('react-native-vector-icons/EvilIcons');
+const Ionicons = require('react-native-vector-icons/Ionicons');
+
 const DRAWER_REF = 'drawer'
 const NAV_REF = 'navigator'
 const MENU_ITEMS = [{
     'title': 'Destinations',
-    'icon': 'mobile',
+    'icon': 'location',
     'position': 0
 }, {
     'title': 'Search',
-    'icon': 'info',
+    'icon': 'search',
     'position': 1
 }];
 
@@ -96,8 +99,8 @@ class cherryblossom extends Component {
           );
 
           toolBars.push(
-              <ToolbarAndroid
-                navIcon={ require('./hamburger.png')}
+              <Ionicons.ToolbarAndroid
+                navIconName="android-arrow-back"
                 onIconClicked={() => {
                                         if (route.id > 0) {
                                             navigator.pop();

@@ -8,7 +8,7 @@ import React, {
   TouchableNativeFeedback,
 } from 'react-native';
 
-var Icon	= require('react-native-vector-icons/FontAwesome');
+const Icon	= require('react-native-vector-icons/EvilIcons');
 
 class DrawerMenuItem extends Component {
 
