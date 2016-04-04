@@ -11,7 +11,7 @@ class Destination extends Component {
   render() {
     return (
       <View style={styles.listItem}>
-        <View style={styles.leftContainer}>
+        <View style={styles.container}>
           <Text style={styles.text}>
             {this.props.title}
           </Text>

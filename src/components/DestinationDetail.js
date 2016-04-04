@@ -57,18 +57,16 @@ var DestinationDetail = React.createClass({
           }}
           annotations={this.state.annotations}
         />
-        <View style={styles.leftContainer}>
-        <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor: 'white'}}
+        <View style={styles.container}>
+          <TextInput
+            style={styles.textInput}
             onChangeText={(text) => this.setState({title: text})}
             value={this.state.title}
           />
-        <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, backgroundColor: 'white'}}
-            onChangeText={(text) => this.setState({address: text})}
-            value={this.state.address}
-          />
-          </View>
+          <Text style={styles.text}>
+            {this.state.address}
+          </Text>
+        </View>
       </View>
     );
   }

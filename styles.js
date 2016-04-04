@@ -58,22 +58,31 @@ const styles = StyleSheet.create({
     paddingTop: 100,
   },
 
-  leftContainer: {
+  container: {
     flex: 1,
-  },
-
-  rightContainer: {
-    paddingRight: 10,
   },
 
   text: {
     color: 'white',
     paddingTop: 10,
     paddingBottom: 10,
+    paddingLeft: 4,
+    paddingRight: 4
   },
 
   map: {
     flex: 2,
+  },
+
+  textInput: {
+    borderRadius: 4,
+    padding: 4,
+    margin: 4,
+    height: 40,
+    backgroundColor: '#3f3f3f',
+    borderColor: 'gray',
+    borderWidth: 1,
+    color: 'white'
   },
 });
 
