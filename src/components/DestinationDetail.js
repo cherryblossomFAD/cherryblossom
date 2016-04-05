@@ -8,11 +8,13 @@ import React, {
   TextInput,
   DeviceEventEmitter,
   Dimensions,
+  Alert,
 } from 'react-native';
 
 const styles = require('../../styles.js')
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
+const removeAlertMessage = "This destination has been removed"
 var MapView = require('react-native-maps');
 
 var DestinationDetail = React.createClass({
@@ -56,7 +58,11 @@ var DestinationDetail = React.createClass({
       }
       this.setState({title: snap.val().title, address: snap.val().address, region: region})
     } else {
-      this.props.navigator.pop()
+      Alert.alert(
+           'Destination removed',
+           removeAlertMessage,
+           [{text: 'OK', onPress: () => this.props.navigator.pop()}]
+         )
     }
   },
 
