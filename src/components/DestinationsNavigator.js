@@ -12,34 +12,8 @@ import React, {
 } from 'react-native';
 
 const styles = require('../../styles.js')
+const NavBar = require('./NavBar')
 const Destinations = require('./Destinations')
-
-var NavigationBarRouteMapper = {
-  LeftButton: function(route, navigator, index, navState) {
-    if (index > 0) {
-      return (
-        <TouchableHighlight
-          onPress={() => {
-              navigator.pop();
-          }}>
-          <Text style={styles.text}>Back</Text>
-        </TouchableHighlight>
-      )
-    }
-  },
-
-  RightButton: function(route, navigator, index, navState) {
-    return null;
-  },
-
-  Title: function(route, navigator, index, navState) {
-    return (
-      <Text style={styles.text}>
-        {route.name}
-      </Text>
-    );
-  }
-}
 
 class DestinationsNavigator extends Component {
   renderScene(route, navigator) {
@@ -49,19 +23,14 @@ class DestinationsNavigator extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'Destinations', component: Destinations }}
-        tintColor="white"
-        titleTextColor="white"
-        barTintColor="#101010"
-        renderScene = { this.renderScene.bind(this) }
-        navigationBar={
-        <Navigator.NavigationBar
-          style={styles.nav}
-          routeMapper={NavigationBarRouteMapper}
-        />}
-        />
-    )
-  }
+      tintColor="white"
+      titleTextColor="white"
+      barTintColor="#101010"
+              initialRoute={ { name: 'Destinations', component: Destinations } }
+              renderScene={ this.renderScene.bind(this) }
+              navigationBar={NavBar} />
+      )
+    }
 }
 
 module.exports = DestinationsNavigator
