@@ -67,14 +67,7 @@ var DestinationDetail = React.createClass({
   },
 
   onSubmitChange() {
-    this.destinationRef.set({
-      title: this.state.title,
-      address: this.state.address,
-      location: {
-        lat: this.state.region.latitude,
-        lng: this.state.region.longitude,
-      },
-    })
+    this.destinationRef.child('title').set(this.state.title)
   },
 
   keyboardWillShow (e) {
