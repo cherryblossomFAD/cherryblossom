@@ -42,8 +42,9 @@ var DestinationDetail = React.createClass({
     this.destinationRef.on('value', this.onValueChange)
   },
 
-  valueRemoved() {
-    this.props.navigator.pop()
+  componentWillUnmount() {
+    this.destinationRef.off('value')
+    DeviceEventEmitter.removeAllListeners()
   },
 
   onValueChange(snap) {
@@ -59,15 +60,21 @@ var DestinationDetail = React.createClass({
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }
-
       this.setState({title: snap.val().title, address: snap.val().address, annotations: annotation, region: region})
     } else {
       this.props.navigator.pop()
     }
   },
 
-  valueChanged(snap, previousKey) {
-
+  onSubmitChange() {
+    this.destinationRef.set({
+      title: this.state.title,
+      address: this.state.address,
+      location: {
+        lat: this.state.region.latitude,
+        lng: this.state.region.longitude,
+      },
+    })
   },
 
   keyboardWillShow (e) {
@@ -91,6 +98,7 @@ var DestinationDetail = React.createClass({
           <TextInput
             style={styles.textInput}
             onChangeText={(text) => this.setState({title: text})}
+            onSubmitEditing={this.onSubmitChange}
             value={this.state.title}
           />
           <Text style={styles.text}>
