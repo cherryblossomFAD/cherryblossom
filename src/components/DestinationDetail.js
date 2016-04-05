@@ -5,7 +5,6 @@ import React, {
   StyleSheet,
   Text,
   View,
-  MapView,
   TextInput,
   DeviceEventEmitter,
   Dimensions,
@@ -14,6 +13,7 @@ import React, {
 const styles = require('../../styles.js')
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://cherryblossoms.firebaseio.com/';
+var MapView = require('react-native-maps');
 
 var DestinationDetail = React.createClass({
 
@@ -92,7 +92,6 @@ var DestinationDetail = React.createClass({
         <MapView
           style={styles.map}
           region = {this.state.region}
-          annotations={this.state.annotations}
         />
         <View style={styles.container}>
           <TextInput

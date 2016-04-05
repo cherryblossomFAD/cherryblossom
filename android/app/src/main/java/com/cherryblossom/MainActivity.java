@@ -3,6 +3,7 @@ package com.cherryblossom;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.AirMaps.AirPackage;
 
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -36,8 +37,9 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage()
-            , new VectorIconsPackage()
+            new MainReactPackage(),
+            new VectorIconsPackage(),
+            new AirPackage()
         );
     }
 }
