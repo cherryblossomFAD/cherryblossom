@@ -31,6 +31,7 @@
 		ABF4A59C1CB45C5F00E8A979 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF4A5941CB45C5F00E8A979 /* MaterialIcons.ttf */; };
 		ABF4A59D1CB45C5F00E8A979 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF4A5951CB45C5F00E8A979 /* Octicons.ttf */; };
 		ABF4A59E1CB45C5F00E8A979 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF4A5961CB45C5F00E8A979 /* Zocial.ttf */; };
+		ABF4A5FD1CB469B200E8A979 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF4A5CC1CB464DE00E8A979 /* libRNVectorIcons.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF4A5FD1CB469B200E8A979 /* libRNVectorIcons.a in Frameworks */,
 				05A50F741CB3BF2B00BD4FCF /* libAirMaps.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,

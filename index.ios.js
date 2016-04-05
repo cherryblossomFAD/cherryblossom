@@ -11,6 +11,7 @@ import React, {
 } from 'react-native';
 
 const DestinationsNavigator = require('./src/components/DestinationsNavigator')
+const EntypoIcon	= require('react-native-vector-icons/Entypo');
 const Search = require('./src/components/Search')
 const styles = require('./styles.js')
 
@@ -41,9 +42,9 @@ class CherryBlossom extends Component {
     <TabBarIOS
         tintColor="white"
         barTintColor="#101010">
-        <TabBarIOS.Item
+        <EntypoIcon.TabBarItemIOS
           title="Destinations"
-          icon={{uri: base64Icon, scale: 3}}
+          iconName="location-pin"
           selected={this.state.selectedTab === 'destinationsTab'}
           onPress={() => {
             this.setState({
@@ -51,17 +52,7 @@ class CherryBlossom extends Component {
             });
           }}>
           <DestinationsNavigator />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          systemIcon="bookmarks"
-          selected={this.state.selectedTab === 'bookmarksTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'bookmarksTab'
-            });
-          }}>
-          {this._renderContent('Bookmarks')}
-        </TabBarIOS.Item>
+        </EntypoIcon.TabBarItemIOS>
         <TabBarIOS.Item
           systemIcon="search"
           selected={this.state.selectedTab === 'searchTab'}
