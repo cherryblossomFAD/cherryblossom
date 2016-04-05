@@ -20,6 +20,13 @@ var Search = React.createClass({
     return null
   },
 
+  getRatings(destinationRating) {
+    if (destinationRating == null) {
+      return "no ratings"
+    }
+    return destinationRating
+  },
+
   render() {
     return (
       <GooglePlacesAutocomplete
@@ -30,7 +37,7 @@ var Search = React.createClass({
         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
           console.log(data);
           console.log(details);
-          const destination = { title: details.name, address: details.formatted_address, location: details.geometry.location }
+          const destination = { title: details.name, address: details.formatted_address, location: details.geometry.location, rating: this.getRatings(details.rating)}
           this.itemsRef.push(destination)
 
           const destinationAddedMessage = "\"" + destination.title + "\" was added to your Desinations."
