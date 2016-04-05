@@ -55,11 +55,15 @@ var Search = React.createClass({
         }}
         styles={{
           description: {
-            fontWeight: 'bold',
+            color: 'white',
           },
           predefinedPlacesDescription: {
+            fontWeight: 'bold',
             color: '#1faadb',
           },
+          container: {
+            backgroundColor: '#0f0f0f'
+          }
         }}
 
         currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
