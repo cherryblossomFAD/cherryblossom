@@ -22,7 +22,6 @@ var DestinationDetail = React.createClass({
     return {
       title: '',
       address: '',
-      annotations: [],
       region: {
         latitude: 0.0,
         longitude: 0.0,
@@ -49,18 +48,13 @@ var DestinationDetail = React.createClass({
 
   onValueChange(snap) {
     if (snap.val() != null) {
-      const annotation = [{
-        longitude: snap.val().location.lng,
-        latitude: snap.val().location.lat,
-      }]
-
       const region = {
         latitude: snap.val().location.lat,
         longitude: snap.val().location.lng,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }
-      this.setState({title: snap.val().title, address: snap.val().address, annotations: annotation, region: region})
+      this.setState({title: snap.val().title, address: snap.val().address, region: region})
     } else {
       this.props.navigator.pop()
     }
@@ -85,7 +79,12 @@ var DestinationDetail = React.createClass({
         <MapView
           style={styles.map}
           region = {this.state.region}
-        />
+          >
+          <MapView.Marker
+            coordinate={{latitude: this.state.region.latitude,
+              longitude: this.state.region.longitude}}
+          />
+        </MapView>
         <View style={styles.container}>
           <TextInput
             style={styles.textInput}
