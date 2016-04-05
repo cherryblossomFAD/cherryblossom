@@ -4,7 +4,8 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert
 } from 'react-native';
 
 var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
@@ -31,7 +32,11 @@ var Search = React.createClass({
           console.log(details);
           const destination = { title: details.name, address: details.formatted_address, location: details.geometry.location }
           this.itemsRef.push(destination)
-          alert("\"" + destination.title + "\" was added to your Desinations.")
+
+          const destinationAddedMessage = "\"" + destination.title + "\" was added to your Desinations."
+          Alert.alert(
+               'Destination added',
+               destinationAddedMessage)
         }}
         getDefaultValue={() => {
           return ''; // text input default value
