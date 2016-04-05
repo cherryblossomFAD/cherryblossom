@@ -24,7 +24,7 @@ var Search = React.createClass({
     if (destinationRating == null) {
       return "no ratings"
     }
-    return destinationRating
+    return (destinationRating + " / 5")
   },
 
   render() {

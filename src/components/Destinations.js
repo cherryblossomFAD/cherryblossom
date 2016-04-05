@@ -75,6 +75,7 @@ class Destinations extends Component {
       },
       id: 3,
       title: 'Destination Details',
+      rating: rowData.rating,
     })
   }
 

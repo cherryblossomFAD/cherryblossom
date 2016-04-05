@@ -24,6 +24,7 @@ var DestinationDetail = React.createClass({
     return {
       title: '',
       address: '',
+      rating: '',
       region: {
         latitude: 0.0,
         longitude: 0.0,
@@ -56,7 +57,7 @@ var DestinationDetail = React.createClass({
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }
-      this.setState({title: snap.val().title, address: snap.val().address, region: region})
+      this.setState({title: snap.val().title, address: snap.val().address, rating: snap.val().rating, region: region})
     } else {
       Alert.alert(
            'Destination removed',
@@ -100,6 +101,9 @@ var DestinationDetail = React.createClass({
           />
           <Text style={styles.text}>
             {this.state.address}
+          </Text>
+          <Text style={styles.text}>
+            Rating:  {this.state.rating}
           </Text>
         </View>
       </View>
