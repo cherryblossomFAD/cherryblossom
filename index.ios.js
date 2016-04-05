@@ -36,7 +36,6 @@ class CherryBlossom extends Component {
     return (
       <View style={styles.nav}>
       <StatusBar
-        backgroundColor="blue"
         barStyle="light-content"
         />
     <TabBarIOS
@@ -55,7 +54,6 @@ class CherryBlossom extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="bookmarks"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'bookmarksTab'}
           onPress={() => {
             this.setState({
@@ -66,7 +64,6 @@ class CherryBlossom extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           systemIcon="search"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'searchTab'}
           onPress={() => {
             this.setState({
