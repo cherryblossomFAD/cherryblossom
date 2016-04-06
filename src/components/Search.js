@@ -28,6 +28,14 @@ var Search = React.createClass({
     return (destinationRating + " / 5")
   },
 
+  getOpeningHours(destinatinOpeningHours) {
+    if (destinatinOpeningHours == null ||
+      destinatinOpeningHours.weekday_text == null) {
+      return []
+    }
+    return destinatinOpeningHours.weekday_text
+  },
+
   render() {
     return (
       <View style={styles.searchScene}>
@@ -39,7 +47,13 @@ var Search = React.createClass({
         onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
           console.log(data);
           console.log(details);
-          const destination = { title: details.name, address: details.formatted_address, location: details.geometry.location, rating: this.getRatings(details.rating)}
+          const destination = {
+            title: details.name,
+            address: details.formatted_address,
+            location: details.geometry.location,
+            rating: this.getRatings(details.rating),
+            openingHours: this.getOpeningHours(details.opening_hours)
+          }
           this.itemsRef.push(destination)
 
           const destinationAddedMessage = "\"" + destination.title + "\" was added to your Desinations."

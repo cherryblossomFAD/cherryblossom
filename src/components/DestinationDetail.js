@@ -50,6 +50,7 @@ var DestinationDetail = React.createClass({
   },
 
   onValueChange(snap) {
+    var openingHours = snap.val().openingHours
     if (snap.val() != null) {
       const region = {
         latitude: snap.val().location.lat,
@@ -57,7 +58,11 @@ var DestinationDetail = React.createClass({
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }
-      this.setState({title: snap.val().title, address: snap.val().address, rating: snap.val().rating, region: region})
+      this.setState({title: snap.val().title,
+        address: snap.val().address,
+        rating: snap.val().rating,
+        hours: (openingHours) ? this.getHours(snap.val().openingHours) : "Not Available",
+        region: region})
     } else {
       Alert.alert(
            'Destination removed',
@@ -78,6 +83,14 @@ var DestinationDetail = React.createClass({
 
   keyboardWillHide (e) {
     this.setState({visibleHeight: Dimensions.get('window').height})
+  },
+
+  getHours(openHours) {
+    var theHours = ""
+    openHours.forEach((weekday) => {
+      theHours += weekday + '\n'
+    })
+    return theHours
   },
 
   render() {
@@ -103,7 +116,11 @@ var DestinationDetail = React.createClass({
             {this.state.address}
           </Text>
           <Text style={styles.text}>
-            Rating:  {this.state.rating}
+            Ratings:  {this.state.rating}
+          </Text>
+
+          <Text style={styles.text}>
+            Hours : {this.state.hours}
           </Text>
         </View>
       </View>
