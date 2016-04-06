@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
 
   nav: {
     flex: 1,
-    backgroundColor: '#0f0f0f',
+    backgroundColor: '#202020',
     borderBottomColor: 'white',
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    marginBottom: -StyleSheet.hairlineWidth
   },
 
    navBarTitle: {

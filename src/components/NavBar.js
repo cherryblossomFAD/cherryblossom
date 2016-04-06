@@ -11,6 +11,7 @@ const NavigationBarRouteMapper = {
     if (index > 0) {
       return (
         <TouchableHighlight
+          underlayColor='transparent'
           onPress={() => {
               navigator.pop();
           }}>
