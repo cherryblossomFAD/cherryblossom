@@ -6,6 +6,7 @@ import React, {
   Text,
   View,
   Alert,
+  Platform,
 } from 'react-native';
 
 var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
@@ -55,8 +56,9 @@ var Search = React.createClass({
           language: 'en', // language of the results
         }}
         styles={{
-          description: {
-            color: 'white',
+          description: styles.text,
+          row: {
+            height: (Platform.OS === 'ios') ? 60 : 45
           },
           predefinedPlacesDescription: {
             fontWeight: 'bold',
