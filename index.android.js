@@ -66,6 +66,12 @@ class cherryblossom extends Component {
                         }
                     }
                     renderScene= {this._renderScene.bind(this)}
+                    configureScene={(route, routeStack) => {
+                       if (route.sceneConfig) {
+                           return route.sceneConfig;
+                       }
+                       return Navigator.SceneConfigs.FadeAndroid;
+                   }}
                   />
       </DrawerLayoutAndroid>
     );
@@ -95,6 +101,8 @@ class cherryblossom extends Component {
               onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
               title={route.title}
               style={styles.toolBar}
+              iconColor='white'
+              titleColor='white'
             />
           );
 
@@ -109,6 +117,7 @@ class cherryblossom extends Component {
                               }
                 title={route.title}
                 style={styles.toolBar}
+                iconColor='white'
               />
             );
 
