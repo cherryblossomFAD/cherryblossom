@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
   toolBar: {
     height: 60,
-    backgroundColor: 'gray',
+    backgroundColor: '#292929',
   },
 
   listItem: {
