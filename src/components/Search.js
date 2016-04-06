@@ -6,7 +6,6 @@ import React, {
   Text,
   View,
   Alert,
-  Platform
 } from 'react-native';
 
 var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
@@ -66,7 +65,12 @@ var Search = React.createClass({
           container: {
             paddingTop: 20,
             backgroundColor: '#0f0f0f'
+          },
+          separator: {
+            height: 1,
+            backgroundColor: '#4c4c4c'
           }
+
         }}
 
         currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
