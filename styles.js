@@ -64,12 +64,6 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
   },
 
-  destinationDetail: {
-    flex: 1,
-    backgroundColor: '#0f0f0f',
-    paddingTop: 100,
-  },
-
   container: {
     flex: 1,
   },
@@ -85,6 +79,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 4,
     paddingRight: 4
+  },
+
+  detailText: {
+    color: '#BFCBDD',
+    fontSize: 12,
+    padding: 10,
   },
 
   titleText: {

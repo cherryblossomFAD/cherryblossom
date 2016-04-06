@@ -95,7 +95,7 @@ var DestinationDetail = React.createClass({
 
   render() {
     return (
-      <View style={[{height: this.state.visibleHeight}, styles.scene]}>
+      <View style={[{height: this.state.visibleHeight}, styles.detailScene]}>
         <MapView
           style={styles.map}
           region = {this.state.region}
@@ -112,15 +112,14 @@ var DestinationDetail = React.createClass({
             onSubmitEditing={this.onSubmitChange}
             value={this.state.title}
           />
-          <Text style={styles.text}>
+          <Text style={styles.detailText}>
             {this.state.address}
           </Text>
-          <Text style={styles.text}>
-            Ratings:  {this.state.rating}
+          <Text style={styles.detailText}>
+            Ratings: {this.state.rating}
           </Text>
-
-          <Text style={styles.text}>
-            Hours : {this.state.hours}
+          <Text style={styles.detailText}>
+            Hours: {this.state.hours}
           </Text>
         </View>
       </View>
