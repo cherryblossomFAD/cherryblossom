@@ -56,11 +56,12 @@ const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'flex-start',
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#0f0f0f',
     borderBottomColor: '#4c4c4c',
     borderBottomWidth: 0.5,
+    paddingLeft: 8,
   },
 
   destinationDetail: {
@@ -73,10 +74,25 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  leftContainer: {
+    flex: 0.1,
+  },
+
   text: {
-    color: 'white',
+    color: '#BFCBDD',
+    fontSize: 12,
     paddingTop: 10,
     paddingBottom: 10,
+    paddingLeft: 4,
+    paddingRight: 4
+  },
+
+  titleText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#AFC8EA',
+    paddingTop: 10,
+    paddingBottom: 8,
     paddingLeft: 4,
     paddingRight: 4
   },

@@ -9,6 +9,7 @@ import React, {
 } from 'react-native';
 
 const styles = require('../../styles.js')
+const EvilIcon	= require('react-native-vector-icons/EvilIcons');
 
 class Destination extends Component {
 
@@ -94,18 +95,21 @@ class Destination extends Component {
         <View ref="wrapper">
           <Animated.View style={animatedCardStyles} {...this._panResponder.panHandlers}>
           <TouchableHighlight onPress={ this.props.onPress.bind(this) }>
-      <View style={styles.listItem}>
-        <View style={styles.container}>
-          <Text style={styles.text}>
-            {this.props.title}
-          </Text>
-          <Text style={styles.text}>
-            {this.props.address}
-          </Text>
-        </View>
-      </View>
+            <View style={styles.listItem}>
+              <View style={styles.leftContainer}>
+                <EvilIcon name='location' size={24} color={'#6297DC'} style={{paddingTop: 10}}/>
+              </View>
+              <View style={styles.container}>
+                <Text style={styles.titleText}>
+                  {this.props.title}
+                </Text>
+                <Text style={styles.text}>
+                  {this.props.address}
+                </Text>
+              </View>
+            </View>
         </TouchableHighlight>
-      </Animated.View>
+        </Animated.View>
         </View>
       </Animated.View>
     );
