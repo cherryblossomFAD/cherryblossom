@@ -115,7 +115,7 @@ class cherryblossom extends Component {
     switch (route.id) {
       case 0:
         return (
-            <View>
+            <View style={styles.nav}>
               {toolBars[0]}
               <Destinations navigator={navigator} />
             </View>

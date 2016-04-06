@@ -97,7 +97,7 @@ class Destination extends Component {
           <TouchableHighlight onPress={ this.props.onPress.bind(this) }>
             <View style={styles.listItem}>
               <View style={styles.leftContainer}>
-                <EvilIcon name='location' size={24} color={'#6297DC'} style={{paddingTop: 10}}/>
+                <EvilIcon name='location' size={24} color={'#6297DC'}/>
               </View>
               <View style={styles.container}>
                 <Text style={styles.titleText}>

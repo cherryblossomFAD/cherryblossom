@@ -81,7 +81,7 @@ class Destinations extends Component {
 
   renderDestination(rowData) {
     return (
-        <View>
+        <View style={{paddingTop: 10}}>
           <Destination
               title={rowData.title}
               address={rowData.address}
