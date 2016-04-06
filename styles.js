@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
      paddingTop: 10
    },
 
+   navBack: {
+     color: '#E91E63',
+     padding: 10,
+   },   
+
    destinationsScene: {
      backgroundColor: '#0f0f0f',
      paddingTop: (Platform.OS === 'ios') ? 44 : 0,

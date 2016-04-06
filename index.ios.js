@@ -38,7 +38,7 @@ class CherryBlossom extends Component {
         barStyle="light-content"
         />
     <TabBarIOS
-        tintColor="white"
+        tintColor="#E91E63"
         barTintColor="#101010">
         <EntypoIcon.TabBarItemIOS
           title="Destinations"

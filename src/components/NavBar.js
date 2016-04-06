@@ -15,7 +15,7 @@ const NavigationBarRouteMapper = {
           onPress={() => {
               navigator.pop();
           }}>
-          <Text style={styles.text}>Back</Text>
+          <Text style={styles.navBack}>&lt; Back</Text>
         </TouchableHighlight>
       )
     }
