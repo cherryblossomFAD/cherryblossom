@@ -21,27 +21,22 @@ const styles = StyleSheet.create({
 
    destinationsScene: {
      backgroundColor: '#0f0f0f',
-     paddingTop: (Platform.OS === 'ios') ? 40 : 0,
+     paddingTop: (Platform.OS === 'ios') ? 44 : 0,
    },
 
    detailScene: {
      flex: 1,
-     paddingTop: (Platform.OS === 'ios') ? 40 : 0,
-     paddingBottom: (Platform.OS === 'ios') ? 40 : 0,
+     paddingTop: (Platform.OS === 'ios') ? 44 : 0,
+     paddingBottom: (Platform.OS === 'ios') ? 44 : 0,
      backgroundColor: '#0f0f0f',
    },
 
    searchScene: {
      flex: 1,
-     paddingTop: (Platform.OS === 'ios') ? 40 : -20,
-     paddingBottom: (Platform.OS === 'ios') ? 40 : 0,
+     paddingTop: (Platform.OS === 'ios') ? 44 : -20,
+     paddingBottom: (Platform.OS === 'ios') ? 44 : 0,
      backgroundColor: '#0f0f0f',
    },
-
-  destinations: {
-    flex: 1,
-    paddingTop: 40
-  },
 
   tabContent: {
     flex: 1,
