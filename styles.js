@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
    navBack: {
      color: '#E91E63',
      padding: 10,
-   },   
+   },
 
    destinationsScene: {
      backgroundColor: '#0f0f0f',
@@ -39,6 +39,13 @@ const styles = StyleSheet.create({
    searchScene: {
      flex: 1,
      paddingTop: (Platform.OS === 'ios') ? 44 : -20,
+     paddingBottom: (Platform.OS === 'ios') ? 44 : 0,
+     backgroundColor: '#0f0f0f',
+   },
+
+   moreScene: {
+     flex: 1,
+     paddingTop: (Platform.OS === 'ios') ? 65 : 0,
      paddingBottom: (Platform.OS === 'ios') ? 44 : 0,
      backgroundColor: '#0f0f0f',
    },
@@ -102,6 +109,10 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     paddingLeft: 4,
     paddingRight: 4
+  },
+
+  moreText: {
+    color: 'white',
   },
 
   map: {

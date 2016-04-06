@@ -13,6 +13,7 @@ import React, {
 const DestinationsNavigator = require('./src/components/DestinationsNavigator')
 const EntypoIcon	= require('react-native-vector-icons/Entypo');
 const SearchNavigator = require('./src/components/SearchNavigator')
+const MoreNavigator = require('./src/components/MoreNavigator')
 const styles = require('./styles.js')
 
 class CherryBlossom extends Component {
@@ -22,14 +23,6 @@ class CherryBlossom extends Component {
       selectedTab: 'destinationsTab',
     };
   }
-
-  _renderContent(pageText: string) {
-      return (
-        <View style={[styles.tabContent, {backgroundColor: '#0f0f0f'}]}>
-          <Text style={styles.tabText}>{pageText}</Text>
-        </View>
-      );
-    }
 
   render() {
     return (
@@ -69,7 +62,7 @@ class CherryBlossom extends Component {
               selectedTab: 'moreTab',
             });
           }}>
-          {this._renderContent('More')}
+          <MoreNavigator />
         </TabBarIOS.Item>
       </TabBarIOS>
       </View>
