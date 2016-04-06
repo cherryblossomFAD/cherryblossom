@@ -84,7 +84,10 @@ const styles = StyleSheet.create({
   detailText: {
     color: '#BFCBDD',
     fontSize: 12,
-    padding: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 10
   },
 
   titleText: {
@@ -97,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
   map: {
-    flex: 2,
+    flex: 1,
   },
 
   textInput: {

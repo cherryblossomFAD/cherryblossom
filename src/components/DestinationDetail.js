@@ -119,7 +119,7 @@ var DestinationDetail = React.createClass({
             Ratings: {this.state.rating}
           </Text>
           <Text style={styles.detailText}>
-            Hours: {this.state.hours}
+            {this.state.hours}
           </Text>
         </View>
       </View>
