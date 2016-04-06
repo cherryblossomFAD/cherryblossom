@@ -57,7 +57,7 @@ class Destinations extends Component {
       <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderDestination.bind(this)}
-          style={styles.listView}
+          style={styles.destinationsScene}
       />
     );
   }

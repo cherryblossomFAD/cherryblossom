@@ -5,7 +5,8 @@ import React, {
   StyleSheet,
   Text,
   View,
-  Alert
+  Alert,
+  Platform
 } from 'react-native';
 
 var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplete');
@@ -29,6 +30,7 @@ var Search = React.createClass({
 
   render() {
     return (
+      <View style={styles.searchScene}>
       <GooglePlacesAutocomplete
         placeholder='Search'
         minLength={2} // minimum length of text to search
@@ -62,6 +64,7 @@ var Search = React.createClass({
             color: '#1faadb',
           },
           container: {
+            paddingTop: 20,
             backgroundColor: '#0f0f0f'
           }
         }}
@@ -78,6 +81,7 @@ var Search = React.createClass({
           types: 'food',
         }}
       />
+      </View>
     );
   }
 });

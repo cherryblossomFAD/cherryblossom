@@ -1,6 +1,8 @@
 'use strict';
-const React = require('react-native')
-const {StyleSheet} = React
+import React, {
+  Platform,
+  StyleSheet,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   search: {
@@ -14,7 +16,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0f0f0f',
     borderBottomColor: 'white',
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+  },
+
+   navBarTitle: {
+     color: 'white',
+     fontWeight: 'bold',
+     paddingTop: 10
+   },
+
+   destinationsScene: {
+     backgroundColor: '#0f0f0f',
+     paddingTop: (Platform.OS === 'ios') ? 40 : 0,
+   },
+
+   detailScene: {
+     flex: 1,
+     paddingTop: (Platform.OS === 'ios') ? 40 : 0,
+     paddingBottom: (Platform.OS === 'ios') ? 40 : 0,
+     backgroundColor: '#0f0f0f',
+   },
+
+   searchScene: {
+     flex: 1,
+     paddingTop: (Platform.OS === 'ios') ? 40 : -20,
+     paddingBottom: (Platform.OS === 'ios') ? 40 : 0,
+     backgroundColor: '#0f0f0f',
    },
 
   destinations: {
@@ -35,11 +62,6 @@ const styles = StyleSheet.create({
   toolBar: {
     height: 60,
     backgroundColor: 'gray',
-  },
-
-  listView: {
-    backgroundColor: '#0f0f0f',
-    paddingTop: 40,
   },
 
   listItem: {

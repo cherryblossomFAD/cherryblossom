@@ -82,7 +82,7 @@ var DestinationDetail = React.createClass({
 
   render() {
     return (
-      <View style={{height: this.state.visibleHeight}}>
+      <View style={[{height: this.state.visibleHeight}, styles.scene]}>
         <MapView
           style={styles.map}
           region = {this.state.region}

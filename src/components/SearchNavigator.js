@@ -1,13 +1,14 @@
 'use strict';
 import React, {
   Component,
-  Navigator
+  Navigator,
 } from 'react-native';
 
+const styles = require('../../styles.js')
 const NavBar = require('./NavBar')
-const Destinations = require('./Destinations')
+const Search = require('./Search')
 
-class DestinationsNavigator extends Component {
+class SearchNavigator extends Component {
   renderScene(route, navigator) {
     return <route.component navigator={navigator} name={route.name} route={route} />
   }
@@ -18,11 +19,12 @@ class DestinationsNavigator extends Component {
         tintColor="white"
         titleTextColor="white"
         barTintColor="#101010"
-        initialRoute={ { name: 'Destinations', component: Destinations } }
+        style={{ flex: 1 }}
+        initialRoute={ { name: 'Search', component: Search } }
         renderScene={ this.renderScene.bind(this) }
         navigationBar={NavBar} />
-    )
-  }
+      )
+    }
 }
 
-module.exports = DestinationsNavigator
+module.exports = SearchNavigator
