@@ -122,21 +122,21 @@ class cherryblossom extends Component {
           );
       case 1:
         return (
-            <View>
+            <View style={styles.nav}>
               {toolBars[0]}
               <Search navigator={navigator} />
             </View>
           );
       case 3:
         return (
-          <View>
+          <View style={styles.nav}>
             {toolBars[1]}
             <DestinationDetail navigator={navigator} route={route}/>
           </View>
         )
       default:
         return (
-          <View>
+          <View style={styles.nav}>
             {toolBars[0]}
             <Destinations navigator={navigator} />
           </View>
