@@ -51,13 +51,13 @@ class DrawerMenu extends Component {
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFF'
+        backgroundColor: '#292929'
     },
     drawerHeader: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#E91E63',
         height: 58,
         marginBottom: 19,
-        borderBottomColor: '#e0e0e0',
+        borderBottomColor: '#8A264D',
         borderBottomWidth: 2,
     },
     menuItemWrapper: {
@@ -79,7 +79,8 @@ var styles = StyleSheet.create({
     appTitle: {
     	fontSize: 20,
     	marginLeft: 16,
-    	marginTop: 15
+    	marginTop: 15,
+      color: 'white',
     }
 });
 

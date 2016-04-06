@@ -16,7 +16,9 @@ class DrawerMenuItem extends Component {
     var menuColor = this.props.position == this.props.active ? "#E91E63" : "#737373";
 		var menuColorStyle = {
 			color: menuColor,
-			fontSize: 14
+			fontSize: 18,
+      fontWeight: 'bold',
+      paddingBottom: 10,
 		};
 
     return (
@@ -25,7 +27,7 @@ class DrawerMenuItem extends Component {
 				background={TouchableNativeFeedback.Ripple()} >
 				<View style={styles.menuItemWrapper}>
 					<View style={styles.menuItemIcon}>
-						<Icon name={this.props.icon} size={24} color={menuColor} marginRight={30} />
+						<Icon name={this.props.icon} size={32} color={menuColor} marginRight={30} style={{paddingBottom: 5}} />
 					</View>
 					<View style={styles.menuItemtext}>
 						<Text style={menuColorStyle}>
@@ -55,7 +57,7 @@ var styles = StyleSheet.create({
         marginRight: 32
     },
     menuItemtext: {
-        flex: 2
+        flex: 2,
     },
 });
 
