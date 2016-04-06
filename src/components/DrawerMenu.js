@@ -55,7 +55,7 @@ var styles = StyleSheet.create({
     },
     drawerHeader: {
         backgroundColor: '#E91E63',
-        height: 58,
+        height: 62,
         marginBottom: 19,
         borderBottomColor: '#8A264D',
         borderBottomWidth: 2,
