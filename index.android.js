@@ -18,6 +18,7 @@ const styles = require('./styles.js')
 const Destinations = require('./src/components/Destinations')
 const DestinationDetail = require('./src/components/DestinationDetail')
 const Search = require('./src/components/Search')
+const More = require('./src/components/More')
 const DrawerMenu = require('./src/components/DrawerMenu')
 const Icon	= require('react-native-vector-icons/EvilIcons');
 const Ionicons = require('react-native-vector-icons/Ionicons');
@@ -32,6 +33,10 @@ const MENU_ITEMS = [{
     'title': 'Search',
     'icon': 'search',
     'position': 1
+}, {
+    'title': 'About',
+    'icon': 'exclamation',
+    'position': 2
 }];
 
 class cherryblossom extends Component {
@@ -137,6 +142,13 @@ class cherryblossom extends Component {
               <Search navigator={navigator} />
             </View>
           );
+      case 2:
+            return (
+                <View style={styles.nav}>
+                  {toolBars[0]}
+                  <More navigator={navigator} />
+                </View>
+              );
       case 3:
         return (
           <View style={styles.nav}>
