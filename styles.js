@@ -5,17 +5,10 @@ import React, {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-  search: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#0f0f0f'
-  },
-
   nav: {
     flex: 1,
     backgroundColor: '#202020',
-    borderBottomColor: 'white',
+    borderBottomColor: '#4c4c4c',
     borderBottomWidth: StyleSheet.hairlineWidth,
     marginBottom: -StyleSheet.hairlineWidth
   },
@@ -71,7 +64,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#0f0f0f',
-    borderBottomColor: 'white',
+    borderBottomColor: '#4c4c4c',
     borderBottomWidth: 0.5,
   },
 
