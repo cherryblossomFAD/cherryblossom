@@ -70,7 +70,7 @@ class cherryblossom extends Component {
                        if (route.sceneConfig) {
                            return route.sceneConfig;
                        }
-                       return Navigator.SceneConfigs.FadeAndroid;
+                       return Navigator.SceneConfigs.FloatFromBottomAndroid;
                    }}
                   />
       </DrawerLayoutAndroid>
@@ -118,6 +118,7 @@ class cherryblossom extends Component {
                 title={route.title}
                 style={styles.toolBar}
                 iconColor='white'
+                titleColor='white'
               />
             );
 
