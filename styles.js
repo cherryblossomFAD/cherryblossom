@@ -113,6 +113,8 @@ const styles = StyleSheet.create({
 
   moreText: {
     color: 'white',
+    fontSize: 17,
+    padding: 10,
   },
 
   map: {
